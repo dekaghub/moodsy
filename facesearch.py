@@ -16,12 +16,22 @@ image = vision.types.Image(content = content)
 response = client.face_detection(image = image)
 faces = response.face_annotations
 
-likelihood_name = ('UNKNOWN', 'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE',
-                       'LIKELY', 'VERY_LIKELY')
+# Google's definition
+# likelihood_name = ('UNKNOWN', 'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE', 'LIKELY', 'VERY_LIKELY')
+
+# Numerical definition for calc
+likelihood_name = (-1,1,2,3,4,5)
+
+num_faces = len(faces)
+
+emotions = {'joy' : [],
+            'anger' : [],
+            'sorrow' : [],
+            'surprise' : []
+            }
 
 for face in faces:
-    print('face #')
-    print('anger: {}'.format(likelihood_name[face.anger_likelihood]))
-    print('sorrow: {}'.format(likelihood_name[face.sorrow_likelihood]))
-    print('joy: {}'.format(likelihood_name[face.joy_likelihood]))
-    print('surprise: {}'.format(likelihood_name[face.surprise_likelihood]))
+    emotions['joy'].append(likelihood_name[face.joy_likelihood])
+    emotions['anger'].append(likelihood_name[face.anger_likelihood])
+    emotions['sorrow'].append(likelihood_name[face.sorrow_likelihood])
+    emotions['surprise'].append(likelihood_name[face.surprise_likelihood])
