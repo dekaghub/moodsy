@@ -1,14 +1,6 @@
 import random as r
 import math
 
-# start of mapping vision to spotify
-
-# joy = anger = sadness = sorrow = 0
-
-# energy = danceability = valence = 0
-
-# acoustic = liveness = 0
-
 # Sigmoid
 def sigmoid(x):
     return 1/(1 + math.exp(-x))
@@ -57,10 +49,10 @@ def spotifySliders(jassObject):
 }
 
     mFactor = mood_factor(mood_spectrum(jassObject)) * r.randint(-1,1)
-
-    trackParameters['danceability'] = (math.fabs(math.fabs(mFactor) * joy/5 + (1/sorrow) * sigmoid(joy)/softmax(joy)))
+    print('mFactor : ', mFactor)
+    trackParameters['danceability'] = sigmoid(joy/5 + anger/5) * 0.8 + softmax(joy/anger) * math.tanh(joy/anger) *  1/sorrow * mFactor
     
-    trackParameters['energy'] = (0.8 * joy/5 + mFactor * (anger/joy)) * .75
+    trackParameters['energy'] = math.fabs((0.8 * (joy/5 + anger/5) + mFactor * (anger/joy)) * .75)
 
     trackParameters['valence'] = 1 - sorrow/5 + (sigmoid(sorrow) * mFactor) + (1/joy) * softmax(sorrow)
 
