@@ -10,13 +10,6 @@
     <link rel="stylesheet" href="../static/styles.css" />
   </head>
   <body>
-    {% block input_area %}{% endblock %}
-    <script src="../static/script.js"></script>
-    <div class="button-ctr">
-      <form action="/process" method="post">
-        <button type="submit" id="hideme" value="Send Email"></button>
-      <button class="displaybutton">Give me a song</button>
-      </form>
-    </div>
+    {% block content %}{% endblock %}
   </body>
 </html>

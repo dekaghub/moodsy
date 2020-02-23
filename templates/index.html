@@ -1,9 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 
-{% block input_area %}
+{% block content %}
 <h1>moodsy</h1>
 
 <div class="container">
   <div class="droparea">Drop image here</div>
+</div>
+<script src="../static/script.js"></script>
+<div class="button-ctr">
+  <form action="/process" method="post">
+    <button type="submit" id="hideme" value="Send Email"></button>
+    <button class="displaybutton">Give me a song</button>
+  </form>
 </div>
 {% endblock %}

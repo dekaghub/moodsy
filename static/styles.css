@@ -53,6 +53,10 @@ body {
     font-family:'Lato';
 } 
 
+.imageinput {
+    font-family:'Lato';
+}
+
 #hideme{
     display:none;
 }
