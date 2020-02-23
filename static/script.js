@@ -1,4 +1,9 @@
-$(function() {
+$(function(){
+    
+    var dragHandler = function(evt){
+        evt.preventDefault();
+    };
+
     var dropHandler = function(evt){
         evt.preventDefault();
         var files = evt.originalEvent.dataTransfer.files;
@@ -7,7 +12,7 @@ $(function() {
         formData.append("file2upload", files[0]);
 
         var req = {
-            url: "/",
+            url: "/sendfile",
             method: "post",
             processData: false,
             contentType: false,
@@ -16,4 +21,11 @@ $(function() {
 
         var promise = $.ajax(req);
     };
+
+    var dropHandlerSet = {
+        dragover: dragHandler,
+        drop: dropHandler
+    };
+
+    $(".droparea").on(dropHandlerSet);
 });
