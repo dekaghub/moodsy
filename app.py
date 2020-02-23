@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from google.cloud import vision
-import facesearch
+import analyze_image
 
 
 # google creds
@@ -42,7 +42,7 @@ def send_file():
 
 @app.route("/process", methods=["GET", "POST"])
 def process_image():
-    return facesearch.process_image(session["filepath"])
+    return analyze_image.facesearch(session["filepath"])
 
 
 if __name__ == '__main__':
