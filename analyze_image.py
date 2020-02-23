@@ -3,9 +3,11 @@ import io
 from google.cloud import vision
 from flask import redirect, render_template
 import number_maps as GoogleToSpotify
+import spotipy_calls
+import random as r
 
 
-def facesearch(filepath):
+def facesearch(filepath, artist):
 
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'service-account-token.json'
 
@@ -21,9 +23,6 @@ def facesearch(filepath):
 
     response = client.face_detection(image=image)
     faces = response.face_annotations
-
-    # Google's definition
-    # likelihood_name = ('UNKNOWN', 'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE', 'LIKELY', 'VERY_LIKELY')
 
     # Numerical definition for calc
     likelihood_name = (-1, 1, 2, 3, 4, 5)
@@ -61,59 +60,30 @@ def facesearch(filepath):
                 'surprise' : likelihood_name[faces[0].surprise_likelihood]
                 }
 
-    # hasface = False
-
-    # for face in faces:
-    #     if emotions['joy'] != []:
-    #         hasface = True
-    #         break
-    #     elif emotions['anger'] != []:
-    #         hasface = True
-    #         break
-    #     elif emotions['sorrow'] != []:
-    #         hasface = True
-    #         break
-    #     elif emotions['surprise'] != []:
-    #         hasface = True
-
-    # if hasface == False:
-    #     colorsearch(filepath)
-    # else:
-    #     return render_template('test.html', value=emotions)
-
-    return render_template('test.html', value=emotions)
 
 
+    names = ['Prunk', 'Drake', 'Paramore', 'Kartell', 'Linkin Park', 'Mac Miller', 'Darius', 'Moon Boots', 'Claire', 'KAYTRANADA', 'Smino', 'Joe Hertz', 'Cheekface', 'Still Woozy', 'Talking Heads', 'Chvrches']
+    uri_ids = []
 
+    for i in range(2):
+        result = spotipy_calls.get_artist(r.choice(names))
+        uri_ids.append(result['id'])
 
+    artistobj = spotipy_calls.get_artist(artist)
 
+    uri_ids.append(artistobj['id'])
+    recoobj = GoogleToSpotify.spotifySliders(emotions)
+    tracks = spotipy_calls.songReco(uri_ids, recoobj)
 
-# def colorsearch(filepath):
+    artist_list = []
+    track_list = []
+    links = []
 
-#     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'service-account-token.json'
+    for track in tracks['tracks']:
+        artist_list.append(track['artists'][0]['name'])
+        track_list.append(track['name'])
+        links.append(track['external_urls']['spotify'])
 
-#     client = vision.ImageAnnotatorClient()
+    final_list = artist_list + track_list + links
 
-#     with io.open(filepath, 'rb') as image_file:
-#         content = image_file.read()
-
-#     image = vision.types.Image(content=content)
-
-#     response = client.image_properties(image=image)
-#     props = response.image_properties_annotation
-
-    # colors = {'fraction': [],
-    #             'red' : [],
-    #             'green' : [],
-    #             'blue' : [],
-    #             'opacity' : []
-    #             }
-
-    # for color in props.dominant_colors.colors:
-    #     colors['fraction'].append('fraction: {}'.format(color.pixel_fraction))
-    #     colors['red'].append('red: {}'.format(color.color.red))
-    #     colors['green'].append('green: {}'.format(color.color.green))
-    #     colors['blue'].append('blue: {}'.format(color.color.blue))
-    #     colors['opacity'].append('opacity: {}'.format(color.color.alpha))
-
-    # return render_template('test.html', value=props)
+    return render_template('test.html', value=final_list)
