@@ -1,10 +1,29 @@
 import sys
 import spotipy
+# from spotipy.oauth2 import SpotifyClientCredentials
+
+# client_credentials_manager = SpotifyClientCredentials()
+# sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+# sp.trace = False
+
 from spotipy.oauth2 import SpotifyClientCredentials
 
-client_credentials_manager = SpotifyClientCredentials()
-sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-sp.trace = False
+# testing
+clientID = '5e3b1a5db9854632bf9207c20eb44424'
+clientSecret = '0c093a2a8bb24aa8bee9b5ff36866cc5'
+
+client_creds = SpotifyClientCredentials(client_id=clientID, client_secret=clientSecret)
+sp = spotipy.Spotify(client_credentials_manager=client_creds)
+
+def songReco(artistIDs):
+    results = sp.recommendations(limit=3,
+                                seed_artists=artistIDs,
+                                target_energy=.5,
+                                target_danceability=.7)
+    # for track in results:
+    #     print(track['name'], '-', track['artists'][0]['name'])
+    return results
+
 
 def get_artist(name):
     results = sp.search(q='artist:' + name, type='artist')
@@ -22,13 +41,21 @@ def show_recommendations_for_artist(artist):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print(('Usage: {0} artist name'.format(sys.argv[0])))
-    else:
-        name = ' '.join(sys.argv[1:])
-        artist = get_artist(name)
-        if artist:
-            show_recommendations_for_artist(artist)
-        else:
-            print("Can't find that artist", name)
+    
+    names = ['Prunk', 'El Funkador', 'Prodot']
+    uri_ids = []
+
+    for name in names:
+        result = get_artist(name)
+        uri_ids.append(result['id'])
+
+    tmp = songReco(uri_ids)
+    
+    for track in tmp['tracks']:
+        print(track['artists'][0]['name'], ' - ', track['name'], '\n\t ', 'Spotify : ', track['external_urls']['spotify'])
+
+    # for t in tmp:    
+    #     print(t['tracks'][0]['external_urls']['spotify'])
+    #     print(t['tracks'][0]['artists'][0]['name'])
+    #     print(t['tracks'][0]['name'])
 
