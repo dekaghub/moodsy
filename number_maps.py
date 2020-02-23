@@ -50,15 +50,14 @@ def spotifySliders(jassObject):
 
     mFactor = mood_factor(mood_spectrum(jassObject)) * r.randint(-1,1)
     print('mFactor : ', mFactor)
-    trackParameters['danceability'] = sigmoid(joy/5 + anger/5) * 0.8 + softmax(joy/anger) * math.tanh(joy/anger) *  1/sorrow * mFactor
+    trackParameters['danceability'] = r.uniform(sigmoid(joy/5 + softmax(anger * mFactor)), .9) + mFactor * 1/sorrow * 0.5
     
-    trackParameters['energy'] = math.fabs((0.8 * (joy/5 + anger/5) + mFactor * (anger/joy)) * .75)
+    trackParameters['energy'] = math.fabs(r.uniform((0.8 * (joy/5 + anger/5) + mFactor * (anger/joy)) * .7, .99))
 
-    trackParameters['valence'] = 1 - sorrow/5 + (sigmoid(sorrow) * mFactor) + (1/joy) * softmax(sorrow)
+    trackParameters['valence'] = math.fabs(((sorrow/5) * .5) + ((1/joy) * .3) + r.uniform(softmax(anger), 1) * mFactor)
+    trackParameters['acoustic'] = r.uniform((math.fabs(sorrow/5 + .2 * joy/5)* 0.75), .9)
 
-    trackParameters['acoustic'] = sorrow/5 + .2 * joy/5
-
-    trackParameters['liveness'] = 0.25 * r.randint(0,1) + sorrow/joy * softmax(r.randint(1,3)) + anger * mFactor * 0.3
+    trackParameters['liveness'] = r.uniform(math.fabs(softmax(sorrow)), .8) + mFactor * r.uniform(sigmoid(joy) * 0.4, .7)
 
     return trackParameters
 
