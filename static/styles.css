@@ -9,12 +9,29 @@ h1 {
     font-weight:700;
 }
 
+text{
+    margin-top:20px;
+}
+
 p{
     color:#1DB954;
 }
 
+td{
+    color:#1DB954;
+    padding:20px;
+}
+
 table{
     border:1px solid #828282;
+    background-color:#ecebe8;
+    margin:auto;
+    text-align:left;
+    padding:20px;
+}
+
+th {
+    text-align:center;
 }
 
 .button-ctr{
@@ -33,6 +50,21 @@ table{
     padding:20px;
     width:300px;
     margin:15px, 30px;
+    font-family:'Lato';
+    font-weight:700;
+    letter-spacing:1px;
+    color:#ecebe8;
+    text-transform:uppercase;
+}
+
+.displaybutton2{
+    color:black;
+    background-color:#1DB954;
+    border:3px solid #1DB954;
+    border-radius:50px;
+    font-size:10px;
+    padding:20px;
+    width:100px;
     font-family:'Lato';
     font-weight:700;
     letter-spacing:1px;

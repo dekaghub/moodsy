@@ -3,10 +3,27 @@ $(function() {
 
     var list = $( "#input_data" ).text();
     console.log(list);
+    console.log(typeof list);
+    console.log(list[0]);
+    var clean1 = list.replace("[", "");
+    var clean2 = clean1.replace("]", "");
+    var clean3 = clean2.replace("'", "");
+    var clean4 = clean2.replace("'", "");
 
-    document.getElementById("song1").innerHTML = list[0];
-    document.getElementById("song2").innerHTML = list[1];
-    document.getElementById("song3").innerHTML = list[2];
+    final = clean4.split(",");
+    console.log(final);
+
+    document.getElementById("song1").innerHTML =  final[0];
+    document.getElementById("song2").innerHTML = final[1];
+    document.getElementById("song3").innerHTML = '<a class="displaybutton2"href=' + final[2] + '>' + 'play on spotify' + '</a>';
+    document.getElementById("artist1").innerHTML =  final[3];
+    document.getElementById("artist2").innerHTML = final[4];
+    document.getElementById("artist3").innerHTML = '<a class="displaybutton2"href=' + final[5] + '>' + 'play on spotify' + '</a>';
+    document.getElementById("link1").innerHTML =  final[6];
+    document.getElementById("link2").innerHTML = final[7];
+    document.getElementById("link3").innerHTML = '<a class="displaybutton2"href=' + final[8] + '>' + 'play on spotify' + '</a>';
+    
+    
     
     // var dragHandler = function(evt){
     //     evt.preventDefault();
