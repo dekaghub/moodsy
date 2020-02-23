@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, session
+from flask import Flask, request, render_template, session
 import os
 import io
 from werkzeug.utils import secure_filename
