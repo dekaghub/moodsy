@@ -27,7 +27,7 @@ app.secret_key = "iLovmygorlfrein_wowSheCOOL"
 
 @app.route("/")
 def index():
-    return redirect("/static/index.html")
+    return render_template('index.html')
 
 
 @app.route("/sendfile", methods=["POST"])
