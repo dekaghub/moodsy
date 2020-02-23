@@ -23,11 +23,11 @@ td{
 }
 
 table{
-    border:1px solid #828282;
-    background-color:#ecebe8;
+    background-color:rgb(46, 45, 45);
     margin:auto;
     text-align:left;
     padding:20px;
+    border-radius:50px;
 }
 
 th {
@@ -40,21 +40,26 @@ th {
 }
 
 .displaybutton {
-  color: black;
-  background-color: #1db954;
-  border: 3px solid #1db954;
-  border-radius: 50px;
-  margin: auto;
-  margin-top: 55px;
-  font-size: 20px;
-  padding: 20px;
-  width: 300px;
-  margin: 15px, 30px;
-  font-family: "Lato";
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #ecebe8;
-  text-transform: uppercase;
+    color:black;
+    background-color:#1DB954;
+    border:3px solid #1DB954;
+    border-radius:50px;
+    margin:auto;
+    margin-top:55px;
+    font-size:20px;
+    padding:20px;
+    width:300px;
+    margin:15px, 20px;
+    font-family:'Lato';
+    font-weight:700;
+    letter-spacing:1px;
+    color:#ecebe8;
+    text-transform:uppercase;
+}
+
+#homebutton{
+    margin:auto;
+    text-align:center;
 }
 
 .displaybutton2{
@@ -64,12 +69,13 @@ th {
     border-radius:50px;
     font-size:10px;
     padding:20px;
-    width:100px;
     font-family:'Lato';
     font-weight:700;
     letter-spacing:1px;
     color:#ecebe8;
     text-transform:uppercase;
+    height:30px;
+    width:70px;
 }
 
 body {
@@ -79,19 +85,20 @@ body {
 }
 
 .droparea {
-  width: 300px;
-  height: 300px;
-  border-style: solid;
-  border-radius: 25px;
-  border-width: 1px;
-  border-color: black;
-  margin: auto;
-  margin-top: 0px;
-  line-height: 200px;
-  text-align: center;
-  background-color: #828282;
-  font-family: "Lato";
-}
+    width: 300px;
+    height: 300px;
+    border-style: solid;
+    border-radius:25px;
+    border-width: 1px;
+    border-color: black;
+    margin:auto;
+    margin-top:0px;
+    line-height: 200px;
+    text-align: center;
+    background-color:#828282;
+    font-family:'Lato';
+    margin-bottom:50px;
+} 
 
 .imageinput {
   font-family: "Lato";

@@ -86,7 +86,6 @@ def facesearch(filepath, artist):
 
     final_list = []
     for i in range(0, len(track_list)):
-        print(i, flush=True)
         final_list.append(track_list[i])
         final_list.append(artist_list[i])
         final_list.append(links[i])
