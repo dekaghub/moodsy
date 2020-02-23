@@ -30,8 +30,27 @@ emotions = {'joy' : [],
             'surprise' : []
             }
 
-for face in faces:
-    emotions['joy'].append(likelihood_name[face.joy_likelihood])
-    emotions['anger'].append(likelihood_name[face.anger_likelihood])
-    emotions['sorrow'].append(likelihood_name[face.sorrow_likelihood])
-    emotions['surprise'].append(likelihood_name[face.surprise_likelihood])
+if num_faces > 1:
+
+    for face in faces:
+        emotions['joy'].append(likelihood_name[face.joy_likelihood])
+        emotions['anger'].append(likelihood_name[face.anger_likelihood])
+        emotions['sorrow'].append(likelihood_name[face.sorrow_likelihood])
+        emotions['surprise'].append(likelihood_name[face.surprise_likelihood])
+
+    joy = sum(emotions['joy'])/len(emotions['joy'])
+    anger = sum(emotions['anger'])/len(emotions['anger'])
+    sorrow = sum(emotions['sorrow'])/len(emotions['sorrow'])
+    surprise = sum(emotions['surprise'])/len(emotions['surprise'])
+
+    emotions = {'joy' : joy,
+            'anger' : anger,
+            'sorrow' : sorrow,
+            'surprise' : surprise
+            }
+elif num_faces == 1:
+    emotions = {'joy' : likelihood_name[face.joy_likelihood],
+            'anger' : likelihood_name[face.anger_likelihood],
+            'sorrow' : likelihood_name[face.sorrow_likelihood],
+            'surprise' : likelihood_name[face.surprise_likelihood]
+            }

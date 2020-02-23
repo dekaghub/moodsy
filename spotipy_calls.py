@@ -1,12 +1,8 @@
 import sys
 import spotipy
-# from spotipy.oauth2 import SpotifyClientCredentials
-
-# client_credentials_manager = SpotifyClientCredentials()
-# sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-# sp.trace = False
-
 from spotipy.oauth2 import SpotifyClientCredentials
+
+import number_maps as googleToSpotify
 
 # testing
 clientID = '5e3b1a5db9854632bf9207c20eb44424'

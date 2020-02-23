@@ -9,12 +9,6 @@ def sigmoid(x):
 def softmax(x):
     return x/(math.fabs(x) + 1)
 
-emotions = {'joy' : 0,
-            'anger' : 0,
-            'sorrow' : 0,
-            'surprise' : 0
-            }
-
 
 # return tag for low energy, neutral, upbeat, ambivalent
 def mood_spectrum(jassObject):
@@ -40,13 +34,14 @@ def mood_factor(tag):
 
 # direct multipliers
 def spotifySliders(jassObject):
+    
     joy, anger, sorrow, surprise = jassObject.values()
     trackParameters = { 'danceability' : 0,
                     'energy' : 0,
                     'valence' : 0,
                     'acoustic' : 0,
                     'liveness' : 0
-}
+                    }
 
     mFactor = mood_factor(mood_spectrum(jassObject)) * r.randint(-1,1)
     print('mFactor : ', mFactor)
@@ -60,24 +55,4 @@ def spotifySliders(jassObject):
     trackParameters['liveness'] = r.uniform(math.fabs(softmax(sorrow)), .8) + mFactor * r.uniform(sigmoid(joy) * 0.4, .7)
 
     return trackParameters
-
-
-if __name__ == '__main__':
-
-    emotions = {'joy' : 0,
-            'anger' : 0,
-            'sorrow' : 0,
-            'surprise' : 0
-            }
-    
-    for i in range(10):
-        emotions['joy'] = r.choice([-1,1,2,3,4,5])
-        emotions['anger'] = r.choice([-1,1,2,3,4,5])
-        emotions['sorrow'] = r.choice([-1,1,2,3,4,5])
-        emotions['surprise'] = r.choice([-1,1,2,3,4,5])
-
-        spotifyObj = spotifySliders(emotions)
-
-        print(emotions)
-        print(spotifyObj)
 
