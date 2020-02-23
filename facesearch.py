@@ -6,7 +6,7 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'service-account-token.json'
 client = vision.ImageAnnotatorClient()
 
 # image file
-image_location = 'image.jpg'
+image_location = 'sad.jpeg'
 
 with io.open(image_location, 'rb') as image_file:
     content = image_file.read()
@@ -33,6 +33,7 @@ emotions = {'joy' : [],
 if num_faces > 1:
 
     for face in faces:
+        print(' in faces 3')
         emotions['joy'].append(likelihood_name[face.joy_likelihood])
         emotions['anger'].append(likelihood_name[face.anger_likelihood])
         emotions['sorrow'].append(likelihood_name[face.sorrow_likelihood])
@@ -49,8 +50,11 @@ if num_faces > 1:
             'surprise' : surprise
             }
 elif num_faces == 1:
-    emotions = {'joy' : likelihood_name[face.joy_likelihood],
-            'anger' : likelihood_name[face.anger_likelihood],
-            'sorrow' : likelihood_name[face.sorrow_likelihood],
-            'surprise' : likelihood_name[face.surprise_likelihood]
+    print(' in faces 1')
+    emotions = {'joy' : likelihood_name[faces[0].joy_likelihood],
+            'anger' : likelihood_name[faces[0].anger_likelihood],
+            'sorrow' : likelihood_name[faces[0].sorrow_likelihood],
+            'surprise' : likelihood_name[faces[0].surprise_likelihood]
             }
+
+print(emotions)

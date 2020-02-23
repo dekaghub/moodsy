@@ -1,6 +1,7 @@
 import sys
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+import random as r
 
 import number_maps as googleToSpotify
 
@@ -11,11 +12,22 @@ clientSecret = '0c093a2a8bb24aa8bee9b5ff36866cc5'
 client_creds = SpotifyClientCredentials(client_id=clientID, client_secret=clientSecret)
 sp = spotipy.Spotify(client_credentials_manager=client_creds)
 
-def songReco(artistIDs):
+recoObj = googleToSpotify.spotifySliders(emotions)
+
+def songReco(artistObj, recoObj):
     results = sp.recommendations(limit=3,
-                                seed_artists=artistIDs,
-                                target_energy=.5,
-                                target_danceability=.7)
+                                seed_artists=artistObj['id'],
+                                min_danceability=r.uniform(recoObj['danceability'] * .5, recoObj['danceability']),
+                                max_danceability=r.uniform(recoObj['danceability'] * .8, .9),
+                                min_energy=r.uniform(recoObj['energy'] * .6, recoObj['energy']),
+                                max_energy=r.uniform(recoObj['energy'] * .8, .9),
+                                min_valence=r.uniform(recoObj['valence'] * .6, recoObj['valence']),
+                                max_valence=r.uniform(recoObj['valence'] * .8, .9),
+                                min_acoustic=r.uniform(recoObj['acoustic'] * .6, recoObj['acoustic']),
+                                max_acoustic=r.uniform(recoObj['acoustic'] * .8, .9),
+                                min_liveliness=r.uniform(recoObj['liveliness'] * .6, recoObj['liveliness']),
+                                max_liveliness=r.uniform(recoObj['liveliness'] * .8, .9)
+                                )
     return results
 
 
