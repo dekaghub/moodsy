@@ -1,9 +1,14 @@
-from flask import Flask, request, redirect, jsonify
-import os
+from flask import Flask, request, redirect, jsonify, render_template
+import os, io
 from werkzeug.utils import secure_filename
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+from google.cloud import vision
 
+#google creds
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'service-account-token.json'
+
+#spotify creds
 clientID = '5e3b1a5db9854632bf9207c20eb44424'
 clientSecret = '0c093a2a8bb24aa8bee9b5ff36866cc5'
 
@@ -25,8 +30,10 @@ def send_file():
     filename = secure_filename(fileob.filename)
     save_path = "{}/{}".format(app.config["UPLOAD_FOLDER"], filename)
     fileob.save(save_path)
-
     return "successful_upload"
+
+def process_image():
+    return render_template('test.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
