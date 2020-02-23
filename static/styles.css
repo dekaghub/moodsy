@@ -1,4 +1,7 @@
 /* main css file */
+body {
+    background-color:#84bd00;
+}
 .droparea {
     width: 200px;
     height: 200px;
