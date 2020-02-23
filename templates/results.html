@@ -7,9 +7,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="../static/table.js"></script>
   </head>
   <body>
-    
+    <p id="input_data"> {{ value }} </p>
+    <table>
+        <th><p>Song</p></th>
+        <th><p>Artist</p></th>
+        <th><p>Link</p></th>
+        <tr>
+            <td id="song1"><p></p></td>
+            <td id="song2"><p></p></td>
+            <td id="song3"><p></p></td>
+        </tr>
+        <tr>
+            <td id="artist1"></td>
+            <td id="artist2"></td>
+            <td id="artist3"></td>
+        </tr>
+        <tr>
+            <td id="link1"></td>
+            <td id="link2"></td>
+            <td id="link3"></td>
+        </tr>
+    </table>
   </body>
   </html>

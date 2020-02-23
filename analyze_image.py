@@ -65,7 +65,7 @@ def facesearch(filepath, artist):
     names = ['Prunk', 'Drake', 'Paramore', 'Kartell', 'Linkin Park', 'Mac Miller', 'Darius', 'Moon Boots', 'Claire', 'KAYTRANADA', 'Smino', 'Joe Hertz', 'Cheekface', 'Still Woozy', 'Talking Heads', 'Chvrches']
     uri_ids = []
 
-    for i in range(2):
+    for i in range(0,2):
         result = spotipy_calls.get_artist(r.choice(names))
         uri_ids.append(result['id'])
 
@@ -84,6 +84,11 @@ def facesearch(filepath, artist):
         track_list.append(track['name'])
         links.append(track['external_urls']['spotify'])
 
-    final_list = artist_list + track_list + links
+    final_list = []
+    for i in range(0, len(track_list)):
+        print(i, flush=True)
+        final_list.append(track_list[i])
+        final_list.append(artist_list[i])
+        final_list.append(links[i])
 
-    return render_template('test.html', value=final_list)
+    return render_template('results.html', value=final_list)

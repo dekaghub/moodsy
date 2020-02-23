@@ -9,6 +9,14 @@ h1 {
     font-weight:700;
 }
 
+p{
+    color:#1DB954;
+}
+
+table{
+    border:1px solid #828282;
+}
+
 .button-ctr{
     margin:auto;
     text-align:center;
