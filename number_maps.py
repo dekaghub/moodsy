@@ -33,6 +33,7 @@ def mood_factor(tag):
         return (.00042069 * r.randint(1,69))
 
 # direct multipliers
+#step 1
 def spotifySliders(jassObject):
     
     joy, anger, sorrow, surprise = jassObject.values()
@@ -54,4 +55,5 @@ def spotifySliders(jassObject):
 
     trackParameters['liveness'] = r.uniform(math.fabs(softmax(sorrow)), .8) + mFactor * r.uniform(sigmoid(joy) * 0.4, .7)
 
+    # goes into spotify's api call
     return trackParameters

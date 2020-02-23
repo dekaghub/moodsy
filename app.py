@@ -46,7 +46,8 @@ def send_file():
 
 @app.route("/process", methods=["GET", "POST"])
 def process_image():
-    return analyze_image.facesearch(session["filepath"])
+    artist = request.form['artist']
+    return analyze_image.facesearch(session["filepath"], request.form['artist'])
 
 
 if __name__ == '__main__':
