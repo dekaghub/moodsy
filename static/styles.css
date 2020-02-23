@@ -53,13 +53,14 @@ th {
     font-family:'Lato';
     font-weight:700;
     letter-spacing:1px;
-    color:#ecebe8;
+    color:#ecebe8 !important;
     text-transform:uppercase;
 }
 
 #homebutton{
     margin:auto;
     text-align:center;
+    color:#ecebe8;
 }
 
 .displaybutton2{

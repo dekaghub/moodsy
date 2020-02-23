@@ -1,10 +1,6 @@
-{% extends 'base.html' %} 
-
-{% block table %}
+{% extends 'base.html' %} {% block table %}
 <script src="../static/table.js"></script>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <h1>Results</h1>
 <p hidden id="input_data">{{ value }}</p>
 <table>
@@ -27,5 +23,11 @@
     <td id="link3"></td>
   </tr>
 </table>
+
+<div id="homebutton">
+  <button class="displaybutton">
+    <a href="http://localhost:5000">go home</a>
+  </button>
+</div>
 
 {% endblock %}
