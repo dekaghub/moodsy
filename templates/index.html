@@ -11,14 +11,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="static/styles.css" />
+    <script src="static/script.js"></script>
 </head>
 
 <body>
     <h1>moodsy</h1>
 
     <div class="container">
-        <div class="droparea">drop image here</div>
-        <div class="tablearea" id="tablearea"></div>
+        <!--
+        <div class="droparea">drop image here
+        -->
+        <div class="middle">
+            <form action = "http://localhost:5000/uploader" method = "POST" 
+            enctype = "multipart/form-data">
+            <label class="custom-file-upload">
+                <input type="file" name = "file"/>
+                choose image
+            </label>
+            <br>
+            <input type = "submit" value="find me a song"/>
+         </form>
+        </div>
+         <!--</div>-->
     </div>
 </body>
 
