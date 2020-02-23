@@ -1,3 +1,21 @@
+
+# Math Functions
+import math
+
+# Sigmoid
+def sigmoid(x):
+    return 1/(1 + math.exp(-x))
+
+# softmax
+def softmax(x):
+    return x/(math.fabs(x) + 1)
+
+# tanh
+math.tanh(x)
+
+# linear
+
+
 import spotipy
 import spotipy.oauth2 as oauth2
 
@@ -64,3 +82,10 @@ if __name__ == '__main__':
             show_recommendations_for_artist(artist)
         else:
             print("Can't find that artist", name)
+
+
+# code dump
+joy = jassObject['joy']
+anger = jassObject['anger']
+sorrow = jassObject['sorrow']
+surprise = jassObject['surprise']
