@@ -10,3 +10,20 @@
 * Liveness : (0 - 1) Prob Distribution of live performance. 1 = def live
 
 * Valence : (0 - 1) Happier towards 1 and sadder towards 0
+
+
+# Vision Values
+
+* Google Default : UNKNOWN', 'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE', 'LIKELY', 'VERY_LIKELY'
+
+* moodsy translations : -1, 1, 2, 3, 4, 5
+
+* Google Labels : Joy, Anger, Sorrow, Surprise
+
+
+# Color Dominance Mappings
+
+* Blue : Sadness
+* Red : Anger
+* Green : Peace, Calm
+* Yellow : Neutral or Happy Energy (Positivity)
