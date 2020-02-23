@@ -37,5 +37,5 @@ def process_image(filepath):
         emotions['sorrow'].append(likelihood_name[face.sorrow_likelihood])
         emotions['surprise'].append(likelihood_name[face.surprise_likelihood])
 
-    
-    return render_template('test.html', value=faces)
+
+    return render_template('test.html', value=emotions)

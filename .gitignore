@@ -125,4 +125,7 @@ dmypy.json
 .pyre/
 
 # VSCode folder
-.vscode/
+.vscode/settings.json
+
+# Uploads
+uploads/
