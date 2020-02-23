@@ -1,8 +1,7 @@
-from flask import Flask, request, redirect, jsonify, render_template, session
+from flask import Flask, request, jsonify, render_template, session
 import os
 import io
 from werkzeug.utils import secure_filename
-from werkzeug.useragents import UserAgent
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from google.cloud import vision
@@ -23,6 +22,7 @@ client_creds = SpotifyClientCredentials(
     client_id=clientID, client_secret=clientSecret)
 sp = spotipy.Spotify(client_credentials_manager=client_creds)
 
+
 app = Flask(__name__)
 Mobility(app)
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -32,16 +32,7 @@ app.secret_key = "iLovmygorlfrein_wowSheCOOL"
 @app.route("/")
 @mobile_template('{mobile/}index.html')
 def index(template):
-    # mobile_devices = ['android', 'iphone', 'ipad', 'blackberry']
-    # user_agent = request.user_agent
-    # print(user_agent.platform, flush=True)
-    # if any(mobile_device in user_agent.platform for mobile_device in mobile_devices):
-    #     return render_template('mobile/index.html')
-    # else:
-    #     return render_template('index.html')
-
     return render_template(template, title='home')
-
 
 @app.route("/sendfile", methods=["POST"])
 def send_file():
