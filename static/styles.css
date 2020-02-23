@@ -4,6 +4,7 @@ h1 {
     font-size:70px;
     font-weight:bold;
     color:black;
+<<<<<<< HEAD
     margin-top:60px;
 }
 
@@ -44,3 +45,49 @@ body {
     text-align: center;
     background-color:#ecebe8
 } 
+=======
+}
+
+body {
+    background-color:#828282;
+    font-family: 'Montserrat',Helvetica,Arial,sans-serif;
+    margin:auto;
+}
+
+.middle{
+    margin:auto;
+    text-align:center;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+input[type="submit"]{
+    margin-top:10px;
+    
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 3px 6px;
+    cursor: pointer;
+    background-color:#84bd00;
+    margin-top:100px;
+}
+
+/* .droparea {
+    width: 200px;
+    height: 200px;
+    border-style: solid;
+    border-radius:25px;
+    border-width: 3px;
+    border-color: black;
+    margin:auto;
+    margin-top:100px;
+    line-height: 200px;
+    text-align: center;
+    background-color:#84bd00
+} */
+>>>>>>> 5ad25ec5d2c3291fcaf24905fdeaebf006205d95
