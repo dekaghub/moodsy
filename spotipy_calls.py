@@ -20,8 +20,6 @@ def songReco(artistIDs):
                                 seed_artists=artistIDs,
                                 target_energy=.5,
                                 target_danceability=.7)
-    # for track in results:
-    #     print(track['name'], '-', track['artists'][0]['name'])
     return results
 
 
@@ -54,8 +52,4 @@ if __name__ == '__main__':
     for track in tmp['tracks']:
         print(track['artists'][0]['name'], ' - ', track['name'], '\n\t ', 'Spotify : ', track['external_urls']['spotify'])
 
-    # for t in tmp:    
-    #     print(t['tracks'][0]['external_urls']['spotify'])
-    #     print(t['tracks'][0]['artists'][0]['name'])
-    #     print(t['tracks'][0]['name'])
 
