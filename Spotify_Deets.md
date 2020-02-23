@@ -11,6 +11,7 @@
 
 * Valence : (0 - 1) Happier towards 1 and sadder towards 0
 
+* Energy : (0 - 1) More energy towards 1
 
 # Vision Values
 
