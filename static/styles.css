@@ -1,10 +1,12 @@
 /* main css file */
 h1 {
     text-align:center;
-    font-size:70px;
-    font-weight:bold;
-    color:black;
-    margin-top:60px;
+    font-size:80px;
+    color:#1DB954;
+    margin-top:30px;
+    margin-bottom:30px;
+    font-family:'Montserrat';
+    font-weight:700;
 }
 
 .button-ctr{
@@ -14,22 +16,25 @@ h1 {
 
 button{
     color:black;
-    background-color:#84bd00;
-    border:3px solid #ecebe8;
+    background-color:#1DB954;
+    border:3px solid #1DB954;
     border-radius:50px;
     margin:auto;
-    margin-top:50px;
-    font-size:25px;
+    margin-top:55px;
+    font-size:20px;
     padding:20px;
     width:300px;
     margin:15px, 30px;
-    font-weight:500;
+    font-family:'Lato';
+    font-weight:700;
+    letter-spacing:1px;
     color:#ecebe8;
+    text-transform:uppercase;
 }
 
 body {
-    background-color:#828282;
-    font-family: 'Montserrat',Helvetica,Arial,sans-serif;
+    background-color:black;
+    font-family: 'Lato';
     margin:auto;
 }
 
@@ -41,8 +46,9 @@ body {
     border-width: 1px;
     border-color: black;
     margin:auto;
-    margin-top:50px;
+    margin-top:0px;
     line-height: 200px;
     text-align: center;
-    background-color:#ecebe8
+    background-color:#828282;
+    font-family:'Lato';
 } 
