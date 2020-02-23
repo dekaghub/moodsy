@@ -1,0 +1,5 @@
+{
+    "SPOTIPY_CLIENT_ID" : "5e3b1a5db9854632bf9207c20eb44424",
+    "SPOTIPY_CLIENT_SECRET" : "0c093a2a8bb24aa8bee9b5ff36866cc5",
+    "SPOTIPY_REDIRECT_URI" : "http://localhost/"
+}
