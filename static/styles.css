@@ -23,11 +23,11 @@ td{
 }
 
 table{
-    border:1px solid #828282;
-    background-color:#ecebe8;
+    background-color:rgb(46, 45, 45);
     margin:auto;
     text-align:left;
     padding:20px;
+    border-radius:50px;
 }
 
 th {
@@ -57,6 +57,11 @@ th {
     text-transform:uppercase;
 }
 
+#homebutton{
+    margin:auto;
+    text-align:center;
+}
+
 .displaybutton2{
     color:black;
     background-color:#1DB954;
@@ -64,12 +69,13 @@ th {
     border-radius:50px;
     font-size:10px;
     padding:20px;
-    width:100px;
     font-family:'Lato';
     font-weight:700;
     letter-spacing:1px;
     color:#ecebe8;
     text-transform:uppercase;
+    height:30px;
+    width:70px;
 }
 
 body {

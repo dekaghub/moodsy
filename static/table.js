@@ -1,17 +1,12 @@
 $(function() {
-    console.log("ready");
 
     var list = $( "#input_data" ).text();
-    console.log(list);
-    console.log(typeof list);
-    console.log(list[0]);
     var clean1 = list.replace("[", "");
     var clean2 = clean1.replace("]", "");
     var clean3 = clean2.replace("'", "");
     var clean4 = clean2.replace("'", "");
 
     final = clean4.split(",");
-    console.log(final);
 
     document.getElementById("song1").innerHTML =  final[0];
     document.getElementById("song2").innerHTML = final[1];
