@@ -1,16 +1,19 @@
-var dragHandler = function(evt){
-    evt.preventDefault();
-};
+$(function() {
+    var dropHandler = function(evt){
+        evt.preventDefault();
+        var files = evt.originalEvent.dataTransfer.files;
 
-var dropHandler = function(evt){
-    evt.preventDefault();
-    var files = evt.originalEvent.dataTransfer.files;
-    console.log(files[0])
-};
+        var formData = new FormData();
+        formData.append("file2upload", files[0]);
 
-var dropHandlerSet = {
-    dragover: dragHandler,
-    drop: dropHandler
-};
+        var req = {
+            url: "/",
+            method: "post",
+            processData: false,
+            contentType: false,
+            data: formData
+        };
 
-$('.droparea').on(dropHandlerSet);
+        var promise = $.ajax(req);
+    };
+});
